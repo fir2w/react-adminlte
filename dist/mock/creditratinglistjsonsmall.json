@@ -1,0 +1,21 @@
+{
+  "title": null,
+  "description": null,
+  "data": [
+    {
+      "id": "1",
+      "creditRatingCode": "A",
+      "loanRate": null,
+      "marginRatio": null,
+      "handlingCharge": null,
+      "description": "A评级说明23",
+      "maxCreditLimit": "6000000",
+      "orderNo": 1,
+      "ext": "更新备注",
+      "gmtCreated": 1437128854000,
+      "gmtModified": 1439453040000,
+      "hasProduct": true
+    }
+  ],
+  "ext": null
+}
