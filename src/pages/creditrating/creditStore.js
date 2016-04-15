@@ -5,8 +5,8 @@ export default {
 
   queryAll: function(callback) {
     //var url = g.dynamicResRoot + "/cc/creditratinglistjson";
-    //var url = "./mock/creditratinglistjson.json";
-    var url = "http://127.0.0.1:18080/cc/creditratinglist";
+    var url = "./mock/creditratinglistjson.json";
+      //var url = "http://127.0.0.1:18080/cc/creditratinglist";
     superagent
       .get(url)
       .set('Accept', 'application/json')
