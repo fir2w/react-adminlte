@@ -7,7 +7,9 @@ var clientTestTask = require('./tasks/client_test');
 var liveReloadTask = require('./tasks/livereload');
 var generalCopyTask = require('./tasks/general_copy');
 var cleanTask = require('./tasks/clean');
+var html2jsxTask = require('./tasks/html2jsx');
 
+gulp.task('h2j', html2jsxTask());
 gulp.task('general-copy-dist', generalCopyTask());
 
 gulp.task('livereload', liveReloadTask());

@@ -144,11 +144,21 @@ export default React.createClass({
     ];
 
     return (
+        <div>
+    {/* Content Header (Page header) */}
+    <section className="content-header">
+      <h1>
+        信用评级查询
+        <small>都在这里</small>
+      </h1>
+      <ol className="breadcrumb">
+        <li><a href="#"><i className="fa fa-dashboard" /> 投融资平台</a></li>
+        <li><a href="#">页面</a></li>
+        <li className="active">信用评级</li>
+      </ol>
+    </section>
 
       <div className="box box-info">
-        <div className="box-header with-border">
-          <h3 className="box-title">订单查询</h3>
-        </div>
         <div className="box-body">
           <CreditQueryForm queryDatas={this._queryAll}></CreditQueryForm>
 
@@ -174,6 +184,7 @@ export default React.createClass({
           </div>
         </div>
       </div>
+          </div>
     )
   }
 });

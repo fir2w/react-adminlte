@@ -123,102 +123,148 @@ export default React.createClass({
 
           <div className="navbar-custom-menu">
             <ul className="nav navbar-nav">
-
-              <li className="messages-menu ng-scope" has-any-authority="ROLE_ADMIN">
-                <a href="./poss_files/poss.html" className="dropdown-toggle" ng-click="changeMenu(module.moduleKey);"
-                   tabIndex={0}><span className="ng-binding">对账</span></a>
-              </li>
-              <li className="messages-menu ng-scope" has-any-authority="ROLE_ADMIN,ROLE_USER,ROLE_ISSUER,ROLE_FMALL">
-                <a href="./poss_files/poss.html" className="dropdown-toggle" ng-click="changeMenu(module.moduleKey);"
-                   tabIndex={0}><span className="ng-binding">系统通知</span></a>
-              </li>
-              <li className="messages-menu ng-scope" has-any-authority="ROLE_ADMIN,ROLE_USER,ROLE_ISSUER,ROLE_FMALL">
-                <a href="./poss_files/poss.html" className="dropdown-toggle" ng-click="changeMenu(module.moduleKey);"
-                   tabIndex={0}><span className="ng-binding">测试</span></a>
-              </li>
-              <li className="dropdown pointer" style={{}}>
-                <a className="dropdown-toggle" data-toggle="dropdown" href aria-expanded="false">
-            <span>
-              <span className="glyphicon glyphicon-user"/>
-              <span className="hidden-sm ng-scope ng-binding" translate="global.menu.account.main">账号</span>
-              <b className="caret"/>
-            </span>
+              {/* Messages: style can be found in dropdown.less*/}
+              <li className="dropdown messages-menu">
+                {/* Menu toggle button */}
+                <a href="#" className="dropdown-toggle" data-toggle="dropdown">
+                  <i className="fa fa-envelope-o" />
+                  <span className="label label-success">4</span>
                 </a>
                 <ul className="dropdown-menu">
-                  <li ui-sref-active="active"><a ui-sref="settings" data-toggle="collapse"
-                                                 data-target=".navbar-collapse.in" href="#/settings"><span
-                    className="glyphicon glyphicon-wrench"/>
-                    &nbsp;<span translate="global.menu.account.settings">设置</span></a></li>
-                  <li ui-sref-active="active"><a ui-sref="password" data-toggle="collapse"
-                                                 data-target=".navbar-collapse.in" href="#/password"><span
-                    className="glyphicon glyphicon-lock"/>
-                    &nbsp;<span translate="global.menu.account.password">密码</span></a></li>
-                  <li ui-sref-active="active"><a ui-sref="sessions" data-toggle="collapse"
-                                                 data-target=".navbar-collapse.in" href="#/sessions"><span
-                    className="glyphicon glyphicon-cloud"/>
-                    &nbsp;<span translate="global.menu.account.sessions">会话</span></a></li>
-                  <li ui-sref-active="active">
-                    <a id="logout" href ng-click="logout()" data-toggle="collapse" data-target=".navbar-collapse.in"
-                       tabIndex={0}>
-                      <span className="glyphicon glyphicon-log-out"/>
-                      &nbsp;<span translate="global.menu.account.logout">退出</span></a></li>
+                  <li className="header">You have 4 messages</li>
+                  <li>
+                    {/* inner menu: contains the messages */}
+                    <ul className="menu">
+                      <li>{/* start message */}
+                        <a href="#">
+                          <div className="pull-left">
+                            {/* User Image */}
+                            <img src="dist/img/user2-160x160.jpg" className="img-circle" alt="User Image" />
+                          </div>
+                          {/* Message title and timestamp */}
+                          <h4>
+                            Support Team
+                            <small><i className="fa fa-clock-o" /> 5 mins</small>
+                          </h4>
+                          {/* The message */}
+                          <p>Why not buy a new awesome theme?</p>
+                        </a>
+                      </li>
+                      {/* end message */}
+                    </ul>
+                    {/* /.menu */}
+                  </li>
+                  <li className="footer"><a href="#">See All Messages</a></li>
                 </ul>
               </li>
-
-
-              <li has-authority="ROLE_ADMIN" className="dropdown pointer ">
-                <a className="dropdown-toggle" data-toggle="dropdown">
-                    <span>
-                      <span className="glyphicon glyphicon-tower"/>
-                      <span className="hidden-sm " translate="global.menu.admin.main">管理</span>
-                      <b className="caret"/>
-                    </span>
+              {/* /.messages-menu */}
+              {/* Notifications Menu */}
+              <li className="dropdown notifications-menu">
+                {/* Menu toggle button */}
+                <a href="#" className="dropdown-toggle" data-toggle="dropdown">
+                  <i className="fa fa-bell-o" />
+                  <span className="label label-warning">10</span>
                 </a>
                 <ul className="dropdown-menu">
-                  <li ui-sref-active="active"><a ui-sref="user-management" data-toggle="collapse"
-                                                 data-target=".navbar-collapse.in"
-                                                 href="#/user-management"><span
-                    className="glyphicon glyphicon-user"/>
-                    &nbsp;<span translate="global.menu.admin.user-management">User management</span></a></li>
-                  <li ui-sref-active="active"><a ui-sref="metrics" data-toggle="collapse"
-                                                 data-target=".navbar-collapse.in"
-                                                 href="#/metrics"><span
-                    className="glyphicon glyphicon-dashboard"/>
-                    &nbsp;<span translate="global.menu.admin.metrics">资源监控</span></a></li>
-                  <li ui-sref-active="active"><a ui-sref="health" data-toggle="collapse"
-                                                 data-target=".navbar-collapse.in"
-                                                 href="#/health"><span
-                    className="glyphicon glyphicon-heart"/>
-                    &nbsp;<span translate="global.menu.admin.health">服务状态</span></a></li>
-                  <li ui-sref-active="active"><a ui-sref="configuration" data-toggle="collapse"
-                                                 data-target=".navbar-collapse.in"
-                                                 href="#/configuration"><span
-                    className="glyphicon glyphicon-list-alt"/>
-                    &nbsp;<span translate="global.menu.admin.configuration">配置</span></a></li>
-                  <li ui-sref-active="active"><a ui-sref="audits" data-toggle="collapse"
-                                                 data-target=".navbar-collapse.in"
-                                                 href="#/audits"><span
-                    className="glyphicon glyphicon-bell"/>
-                    &nbsp;<span translate="global.menu.admin.audits">审核</span></a></li>
-                  <li ui-sref-active="active"><a ui-sref="logs" data-toggle="collapse"
-                                                 data-target=".navbar-collapse.in"
-                                                 href="#/logs"><span
-                    className="glyphicon glyphicon-tasks"/>
-                    &nbsp;<span translate="global.menu.admin.logs">日志</span></a></li>
-                  <li ui-sref-active="active" aria-hidden="false" className><a ui-sref="docs" data-toggle="collapse"
-                                                                               data-target=".navbar-collapse.in"
-                                                                               href="#/docs"><span
-                    className="glyphicon glyphicon-book"/>
-                    &nbsp;<span translate="global.menu.admin.apidocs">API</span></a></li>
-                  <li aria-hidden="false" className><a href="http://func76admin.vfinance.cn/console" target="_tab"
-                                                       data-toggle="collapse"
-                                                       data-target=".navbar-collapse.in"><span
-                    className="glyphicon glyphicon-hdd"/>
-                    &nbsp;<span translate="global.menu.admin.database">数据库</span></a></li>
+                  <li className="header">You have 10 notifications</li>
+                  <li>
+                    {/* Inner Menu: contains the notifications */}
+                    <ul className="menu">
+                      <li>{/* start notification */}
+                        <a href="#">
+                          <i className="fa fa-users text-aqua" /> 5 new members joined today
+                        </a>
+                      </li>
+                      {/* end notification */}
+                    </ul>
+                  </li>
+                  <li className="footer"><a href="#">View all</a></li>
                 </ul>
               </li>
-
-
+              {/* Tasks Menu */}
+              <li className="dropdown tasks-menu">
+                {/* Menu Toggle Button */}
+                <a href="#" className="dropdown-toggle" data-toggle="dropdown">
+                  <i className="fa fa-flag-o" />
+                  <span className="label label-danger">9</span>
+                </a>
+                <ul className="dropdown-menu">
+                  <li className="header">You have 9 tasks</li>
+                  <li>
+                    {/* Inner menu: contains the tasks */}
+                    <ul className="menu">
+                      <li>{/* Task item */}
+                        <a href="#">
+                          {/* Task title and progress text */}
+                          <h3>
+                            Design some buttons
+                            <small className="pull-right">20%</small>
+                          </h3>
+                          {/* The progress bar */}
+                          <div className="progress xs">
+                            {/* Change the css width attribute to simulate progress */}
+                            <div className="progress-bar progress-bar-aqua" style={{width: '20%'}} role="progressbar" aria-valuenow={20} aria-valuemin={0} aria-valuemax={100}>
+                              <span className="sr-only">20% Complete</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      {/* end task item */}
+                    </ul>
+                  </li>
+                  <li className="footer">
+                    <a href="#">View all tasks</a>
+                  </li>
+                </ul>
+              </li>
+              {/* User Account Menu */}
+              <li className="dropdown user user-menu">
+                {/* Menu Toggle Button */}
+                <a href="#" className="dropdown-toggle" data-toggle="dropdown">
+                  {/* The user image in the navbar*/}
+                  <img src="dist/img/user2-160x160.jpg" className="user-image" alt="User Image" />
+                  {/* hidden-xs hides the username on small devices so only the image appears. */}
+                  <span className="hidden-xs">Alexander Pierce</span>
+                </a>
+                <ul className="dropdown-menu">
+                  {/* The user image in the menu */}
+                  <li className="user-header">
+                    <img src="dist/img/user2-160x160.jpg" className="img-circle" alt="User Image" />
+                    <p>
+                      Alexander Pierce - Web Developer
+                      <small>Member since Nov. 2012</small>
+                    </p>
+                  </li>
+                  {/* Menu Body */}
+                  <li className="user-body">
+                    <div className="row">
+                      <div className="col-xs-4 text-center">
+                        <a href="#">Followers</a>
+                      </div>
+                      <div className="col-xs-4 text-center">
+                        <a href="#">Sales</a>
+                      </div>
+                      <div className="col-xs-4 text-center">
+                        <a href="#">Friends</a>
+                      </div>
+                    </div>
+                    {/* /.row */}
+                  </li>
+                  {/* Menu Footer*/}
+                  <li className="user-footer">
+                    <div className="pull-left">
+                      <a href="#" className="btn btn-default btn-flat">Profile</a>
+                    </div>
+                    <div className="pull-right">
+                      <a href="#" className="btn btn-default btn-flat">Sign out</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              {/* Control Sidebar Toggle Button */}
+              <li>
+                <a href="#" data-toggle="control-sidebar"><i className="fa fa-gears" /></a>
+              </li>
             </ul>
           </div>
         </nav>
